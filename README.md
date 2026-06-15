@@ -53,7 +53,7 @@ Each page is assigned an `uncommon_char_score` based on the log-scaled density o
 
 The base model exceeds CER 1.0 on the hardest buckets — meaning it inserts more characters than the reference contains. The fine-tuned model brings every bucket below 0.31.
 
-Full results: [`evaluation/results/report_1000.txt`](evaluation/results/report_1000.txt) · [`evaluation/results/eval_comparison.json`](evaluation/results/eval_comparison.json)
+Full results: [`evaluation/results/report_1000.txt`](evaluation/results/report_1000.txt) · [`evaluation/results/eval_comparison.json`](evaluation/results/eval_comparison.json) · [`evaluation/results/eval_finetuned.json`](evaluation/results/eval_finetuned.json) · [`evaluation/results/eval_base.json`](evaluation/results/eval_base.json)
 
 ---
 
@@ -189,7 +189,7 @@ The resulting characters are those that are linguistically significant across th
 
 This methodology was originally developed for a keyboard layout optimization algorithm (also open-source) that identifies which characters need to be added to a standard QWERTY layout to support indigenous language input. The OCR project repurposes this linguistic analysis as a principled difficulty metric.
 
-Full derivation: [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py) · [`docs/character_set_methodology.md`](docs/character_set_methodology.md)
+Full derivation: [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py)
 
 ---
 
@@ -207,27 +207,26 @@ Full derivation: [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py) · [`d
 ## Repository structure
 
 ```
-tachiwin-ocr/
+tachiwin_ocr_1_5/
 ├── README.md
 ├── LICENSE                          # Apache-2.0
-├── training_data_report.pdf         # Training dataset construction report
+├── report.pdf                       # Training dataset construction report
 │
 ├── training/
-│   ├── train.py                     # Fine-tuning script (Unsloth + TRL SFT)
-│   └── requirements.txt
+│   └── Tachiwin_OCR_PaddleOCR_VL_1_5_Finetuning.ipynb
 │
 ├── evaluation/
 │   ├── tachiwin_ocr_comparison_eval.py   # Full eval + statistical comparison
 │   └── results/
 │       ├── report_1000.txt          # 1000-item summary report
-│       └── eval_comparison.json     # Per-item JSON results
+│       ├── eval_finetuned.json      # Per-item fine-tuned results
+│       ├── eval_base.json           # Per-item base model results
+│       └── eval_comparison.json     # Paired comparison + statistics
 │
 ├── dataset/
 │   ├── uncommon_chars.py            # Character set definition + scoring function
-│   └── dataset_stats.md             # Distribution charts and analysis
-│
-├── docs/
-│   └── character_set_methodology.md # Lexicostatistical derivation pipeline
+│   ├── char_stats.json              # Character frequency statistics
+│   └── layouts.json                 # Layout configuration
 │
 └── examples/
     └── quickstart.py                # Single image → markdown output
@@ -263,7 +262,7 @@ The model covers all 68 INALI-recognized language groups, including:
 - **Scope:** OCR model weights only; layout detector unchanged
 - **Training data:** `tachiwin/multilingual_ocr_llm_2` (~14.5 GB)
 
-See [`Training Notebook`](training/Tachiwin_OCR_PaddleOCR_VL_1_5_Finetuning.ipynb) and [`report.pdf`](report.pdf) for full details.
+See [`training/Tachiwin_OCR_PaddleOCR_VL_1_5_Finetuning.ipynb`](training/Tachiwin_OCR_PaddleOCR_VL_1_5_Finetuning.ipynb) and [`report.pdf`](report.pdf) for full details.
 
 ---
 
@@ -284,7 +283,7 @@ If you use this model or dataset in your research, please cite:
 @misc{tachiwin-ocr-2025,
   title        = {Tachiwin-OCR-1.5: OCR for the Indigenous Languages of Mexico},
   author       = {Tachiwin},
-  year         = {2026},
+  year         = {2025},
   howpublished = {\url{https://huggingface.co/tachiwin/Tachiwin-OCR-1.5}},
   note         = {Fine-tuned from PaddlePaddle/PaddleOCR-VL-1.5}
 }
