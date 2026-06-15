@@ -1,0 +1,59 @@
+
+Summary (fine-tuned):
+  Model    : tachiwin/Tachiwin-OCR-1.5
+  N items  : 1000
+  WER              mean=0.4300  median=0.3552  min=0.0065  max=2.5974  stdev=0.2438
+  CER              mean=0.2210  median=0.1466  min=0.0026  max=2.6260  stdev=0.2369
+  CHAR_ACCURACY    mean=0.7867  median=0.8534  min=0.0000  max=0.9974  stdev=0.1862
+  WORD_ACCURACY    mean=0.5770  median=0.6448  min=0.0000  max=0.9935  stdev=0.2118
+  CER by uncommon_char_score bucket:
+    [0.4, 0.5): n= 165  mean_cer=0.3037
+    [0.5, 0.6): n= 173  mean_cer=0.2734
+    [0.6, 0.7): n= 281  mean_cer=0.1647
+    [0.7, 0.8): n= 211  mean_cer=0.1518
+    [0.8, 0.9): n=  45  mean_cer=0.2556
+    [0.9, 1.0): n= 118  mean_cer=0.2669
+    [0.9, 1.0]: n= 125  mean_cer=0.2699
+
+Summary (base):
+  Model    : PaddlePaddle/PaddleOCR-VL-1.5
+  N items  : 1000
+  WER              mean=0.7450  median=0.4842  min=0.0627  max=26.5333  stdev=1.1934
+  CER              mean=0.7600  median=0.2224  min=0.0260  max=20.9468  stdev=1.6390
+  CHAR_ACCURACY    mean=0.6271  median=0.7775  min=0.0000  max=0.9740  stdev=0.3304
+  WORD_ACCURACY    mean=0.4440  median=0.5158  min=0.0000  max=0.9373  stdev=0.2647
+  CER by uncommon_char_score bucket:
+    [0.4, 0.5): n= 165  mean_cer=1.2947
+    [0.5, 0.6): n= 173  mean_cer=1.3458
+    [0.6, 0.7): n= 281  mean_cer=0.5891
+    [0.7, 0.8): n= 211  mean_cer=0.4058
+    [0.8, 0.9): n=  45  mean_cer=0.3702
+    [0.9, 1.0): n= 118  mean_cer=0.3620
+    [0.9, 1.0]: n= 125  mean_cer=0.3659
+
+======================================================================
+COMPARISON REPORT
+======================================================================
+  BASE     : PaddlePaddle/PaddleOCR-VL-1.5
+  FINETUNE : tachiwin/Tachiwin-OCR-1.5
+  Paired items : 1000
+
+  Metric              BASE mean  FINE mean  Δ (FINE-BASE)   Wilcoxon p  Signif@0.05
+  --------------------------------------------------------------------------------
+  wer                    0.7450     0.4300        +0.3150       0.0000      YES ***
+  cer                    0.7600     0.2210        +0.5390       0.0000      YES ***
+  char_accuracy          0.6271     0.7867        -0.1596       0.0000      YES ***
+  word_accuracy          0.4440     0.5770        -0.1329       0.0000      YES ***
+
+  CER by score bucket (BASE | FINETUNE):
+  Bucket                 BASE CER     FINE CER  Δ (FINE-BASE)
+  ------------------------------------------------------------
+  [0.4, 0.5)         1.2947 (n=165) 0.3037 (n=165)        -0.9910
+  [0.5, 0.6)         1.3458 (n=173) 0.2734 (n=173)        -1.0724
+  [0.6, 0.7)         0.5891 (n=281) 0.1647 (n=281)        -0.4244
+  [0.7, 0.8)         0.4058 (n=211) 0.1518 (n=211)        -0.2540
+  [0.8, 0.9)         0.3702 (n=45) 0.2556 (n=45)        -0.1146
+  [0.9, 1.0)         0.3620 (n=118) 0.2669 (n=118)        -0.0951
+  [0.9, 1.0]         0.3659 (n=125) 0.2699 (n=125)        -0.0960
+======================================================================
+  Note: Δ < 0 means FINETUNE is BETTER (lower WER/CER or higher accuracy)

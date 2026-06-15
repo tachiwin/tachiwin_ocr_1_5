@@ -1,0 +1,600 @@
+{
+  "config": {
+    "eval_dataset": "tachiwin/ocr-test-challenging-3",
+    "uncommon_char_score_min": 0.4,
+    "max_eval_items": 1000,
+    "model_a_finetuned": "tachiwin/Tachiwin-OCR-1.5",
+    "model_b_base": "PaddlePaddle/PaddleOCR-VL-1.5"
+  },
+  "summary_finetuned": {
+    "wer": {
+      "mean": 0.43,
+      "median": 0.3552,
+      "min": 0.0065,
+      "max": 2.5974,
+      "stdev": 0.2438,
+      "n": 1000
+    },
+    "cer": {
+      "mean": 0.221,
+      "median": 0.1466,
+      "min": 0.0026,
+      "max": 2.626,
+      "stdev": 0.2369,
+      "n": 1000
+    },
+    "char_accuracy": {
+      "mean": 0.7867,
+      "median": 0.8534,
+      "min": 0.0,
+      "max": 0.9974,
+      "stdev": 0.1862,
+      "n": 1000
+    },
+    "word_accuracy": {
+      "mean": 0.577,
+      "median": 0.6448,
+      "min": 0.0,
+      "max": 0.9935,
+      "stdev": 0.2118,
+      "n": 1000
+    },
+    "cer_by_score_bucket": {
+      "[0.4, 0.5)": {
+        "mean": 0.3037,
+        "median": 0.181,
+        "min": 0.0209,
+        "max": 2.626,
+        "stdev": 0.3646,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 0.2734,
+        "median": 0.1761,
+        "min": 0.0176,
+        "max": 2.4545,
+        "stdev": 0.309,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.1647,
+        "median": 0.1092,
+        "min": 0.0026,
+        "max": 1.1865,
+        "stdev": 0.1483,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.1518,
+        "median": 0.1107,
+        "min": 0.0153,
+        "max": 0.9022,
+        "stdev": 0.1228,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.2556,
+        "median": 0.2028,
+        "min": 0.0099,
+        "max": 1.047,
+        "stdev": 0.223,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.2669,
+        "median": 0.2198,
+        "min": 0.0373,
+        "max": 0.8136,
+        "stdev": 0.1397,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.2699,
+        "median": 0.2205,
+        "min": 0.0373,
+        "max": 0.8136,
+        "stdev": 0.1414,
+        "n": 125
+      }
+    },
+    "wer_by_score_bucket": {
+      "[0.4, 0.5)": {
+        "mean": 0.4587,
+        "median": 0.3864,
+        "min": 0.0235,
+        "max": 1.9583,
+        "stdev": 0.3024,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 0.4285,
+        "median": 0.3643,
+        "min": 0.0157,
+        "max": 2.5974,
+        "stdev": 0.3268,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.3526,
+        "median": 0.3171,
+        "min": 0.0065,
+        "max": 1.0425,
+        "stdev": 0.1509,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.3428,
+        "median": 0.3193,
+        "min": 0.0229,
+        "max": 0.929,
+        "stdev": 0.1283,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.5091,
+        "median": 0.5855,
+        "min": 0.0155,
+        "max": 0.9746,
+        "stdev": 0.2513,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.6838,
+        "median": 0.6753,
+        "min": 0.198,
+        "max": 0.9936,
+        "stdev": 0.1087,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.6866,
+        "median": 0.6764,
+        "min": 0.198,
+        "max": 0.9964,
+        "stdev": 0.1096,
+        "n": 125
+      }
+    },
+    "model": "tachiwin/Tachiwin-OCR-1.5",
+    "n_items": 1000
+  },
+  "summary_base": {
+    "wer": {
+      "mean": 0.745,
+      "median": 0.4842,
+      "min": 0.0627,
+      "max": 26.5333,
+      "stdev": 1.1934,
+      "n": 1000
+    },
+    "cer": {
+      "mean": 0.76,
+      "median": 0.2224,
+      "min": 0.026,
+      "max": 20.9468,
+      "stdev": 1.639,
+      "n": 1000
+    },
+    "char_accuracy": {
+      "mean": 0.6271,
+      "median": 0.7775,
+      "min": 0.0,
+      "max": 0.974,
+      "stdev": 0.3304,
+      "n": 1000
+    },
+    "word_accuracy": {
+      "mean": 0.444,
+      "median": 0.5158,
+      "min": 0.0,
+      "max": 0.9373,
+      "stdev": 0.2647,
+      "n": 1000
+    },
+    "cer_by_score_bucket": {
+      "[0.4, 0.5)": {
+        "mean": 1.2947,
+        "median": 0.4079,
+        "min": 0.0274,
+        "max": 20.9468,
+        "stdev": 2.159,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 1.3458,
+        "median": 0.25,
+        "min": 0.026,
+        "max": 18.7462,
+        "stdev": 2.5717,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.5891,
+        "median": 0.1471,
+        "min": 0.0464,
+        "max": 7.5387,
+        "stdev": 1.199,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.4058,
+        "median": 0.1622,
+        "min": 0.0902,
+        "max": 7.9543,
+        "stdev": 0.9873,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.3702,
+        "median": 0.2713,
+        "min": 0.056,
+        "max": 1.9142,
+        "stdev": 0.3226,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.362,
+        "median": 0.3162,
+        "min": 0.087,
+        "max": 0.8131,
+        "stdev": 0.1332,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.3659,
+        "median": 0.3193,
+        "min": 0.087,
+        "max": 0.8131,
+        "stdev": 0.134,
+        "n": 125
+      }
+    },
+    "wer_by_score_bucket": {
+      "[0.4, 0.5)": {
+        "mean": 0.8796,
+        "median": 0.5089,
+        "min": 0.0627,
+        "max": 6.65,
+        "stdev": 0.9735,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 1.0585,
+        "median": 0.5165,
+        "min": 0.0676,
+        "max": 26.5333,
+        "stdev": 2.3,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.6185,
+        "median": 0.393,
+        "min": 0.1399,
+        "max": 12.0952,
+        "stdev": 0.8824,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.5626,
+        "median": 0.4093,
+        "min": 0.2214,
+        "max": 8.4783,
+        "stdev": 0.6937,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.6666,
+        "median": 0.6203,
+        "min": 0.2376,
+        "max": 2.3605,
+        "stdev": 0.3176,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.7512,
+        "median": 0.7797,
+        "min": 0.2079,
+        "max": 0.9966,
+        "stdev": 0.1342,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.7537,
+        "median": 0.7763,
+        "min": 0.2079,
+        "max": 0.9966,
+        "stdev": 0.1341,
+        "n": 125
+      }
+    },
+    "model": "PaddlePaddle/PaddleOCR-VL-1.5",
+    "n_items": 1000
+  },
+  "comparison": {
+    "model_a": "tachiwin/Tachiwin-OCR-1.5",
+    "model_b": "PaddlePaddle/PaddleOCR-VL-1.5",
+    "n_paired": 1000,
+    "metrics": {
+      "wer": {
+        "model_a_mean": 0.43,
+        "model_b_mean": 0.745,
+        "mean_diff_a_minus_b": -0.315,
+        "median_diff": -0.0714,
+        "wilcoxon_statistic": 45997.5,
+        "wilcoxon_p": 0.0,
+        "ttest_statistic": -8.8555,
+        "ttest_p": 0.0,
+        "significant_0.05_wilcoxon": true,
+        "significant_0.01_wilcoxon": true
+      },
+      "cer": {
+        "model_a_mean": 0.221,
+        "model_b_mean": 0.76,
+        "mean_diff_a_minus_b": -0.539,
+        "median_diff": -0.052,
+        "wilcoxon_statistic": 21137.0,
+        "wilcoxon_p": 0.0,
+        "ttest_statistic": -10.9665,
+        "ttest_p": 0.0,
+        "significant_0.05_wilcoxon": true,
+        "significant_0.01_wilcoxon": true
+      },
+      "char_accuracy": {
+        "model_a_mean": 0.7867,
+        "model_b_mean": 0.6271,
+        "mean_diff_a_minus_b": 0.1596,
+        "median_diff": 0.0512,
+        "wilcoxon_statistic": 20237.0,
+        "wilcoxon_p": 0.0,
+        "ttest_statistic": 20.2685,
+        "ttest_p": 0.0,
+        "significant_0.05_wilcoxon": true,
+        "significant_0.01_wilcoxon": true
+      },
+      "word_accuracy": {
+        "model_a_mean": 0.577,
+        "model_b_mean": 0.444,
+        "mean_diff_a_minus_b": 0.1329,
+        "median_diff": 0.069,
+        "wilcoxon_statistic": 46435.5,
+        "wilcoxon_p": 0.0,
+        "ttest_statistic": 21.1769,
+        "ttest_p": 0.0,
+        "significant_0.05_wilcoxon": true,
+        "significant_0.01_wilcoxon": true
+      }
+    },
+    "cer_by_score_bucket_a": {
+      "[0.4, 0.5)": {
+        "mean": 0.3037,
+        "median": 0.181,
+        "min": 0.0209,
+        "max": 2.626,
+        "stdev": 0.3646,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 0.2734,
+        "median": 0.1761,
+        "min": 0.0176,
+        "max": 2.4545,
+        "stdev": 0.309,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.1647,
+        "median": 0.1092,
+        "min": 0.0026,
+        "max": 1.1865,
+        "stdev": 0.1483,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.1518,
+        "median": 0.1107,
+        "min": 0.0153,
+        "max": 0.9022,
+        "stdev": 0.1228,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.2556,
+        "median": 0.2028,
+        "min": 0.0099,
+        "max": 1.047,
+        "stdev": 0.223,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.2669,
+        "median": 0.2198,
+        "min": 0.0373,
+        "max": 0.8136,
+        "stdev": 0.1397,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.2699,
+        "median": 0.2205,
+        "min": 0.0373,
+        "max": 0.8136,
+        "stdev": 0.1414,
+        "n": 125
+      }
+    },
+    "cer_by_score_bucket_b": {
+      "[0.4, 0.5)": {
+        "mean": 1.2947,
+        "median": 0.4079,
+        "min": 0.0274,
+        "max": 20.9468,
+        "stdev": 2.159,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 1.3458,
+        "median": 0.25,
+        "min": 0.026,
+        "max": 18.7462,
+        "stdev": 2.5717,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.5891,
+        "median": 0.1471,
+        "min": 0.0464,
+        "max": 7.5387,
+        "stdev": 1.199,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.4058,
+        "median": 0.1622,
+        "min": 0.0902,
+        "max": 7.9543,
+        "stdev": 0.9873,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.3702,
+        "median": 0.2713,
+        "min": 0.056,
+        "max": 1.9142,
+        "stdev": 0.3226,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.362,
+        "median": 0.3162,
+        "min": 0.087,
+        "max": 0.8131,
+        "stdev": 0.1332,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.3659,
+        "median": 0.3193,
+        "min": 0.087,
+        "max": 0.8131,
+        "stdev": 0.134,
+        "n": 125
+      }
+    },
+    "wer_by_score_bucket_a": {
+      "[0.4, 0.5)": {
+        "mean": 0.4587,
+        "median": 0.3864,
+        "min": 0.0235,
+        "max": 1.9583,
+        "stdev": 0.3024,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 0.4285,
+        "median": 0.3643,
+        "min": 0.0157,
+        "max": 2.5974,
+        "stdev": 0.3268,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.3526,
+        "median": 0.3171,
+        "min": 0.0065,
+        "max": 1.0425,
+        "stdev": 0.1509,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.3428,
+        "median": 0.3193,
+        "min": 0.0229,
+        "max": 0.929,
+        "stdev": 0.1283,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.5091,
+        "median": 0.5855,
+        "min": 0.0155,
+        "max": 0.9746,
+        "stdev": 0.2513,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.6838,
+        "median": 0.6753,
+        "min": 0.198,
+        "max": 0.9936,
+        "stdev": 0.1087,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.6866,
+        "median": 0.6764,
+        "min": 0.198,
+        "max": 0.9964,
+        "stdev": 0.1096,
+        "n": 125
+      }
+    },
+    "wer_by_score_bucket_b": {
+      "[0.4, 0.5)": {
+        "mean": 0.8796,
+        "median": 0.5089,
+        "min": 0.0627,
+        "max": 6.65,
+        "stdev": 0.9735,
+        "n": 165
+      },
+      "[0.5, 0.6)": {
+        "mean": 1.0585,
+        "median": 0.5165,
+        "min": 0.0676,
+        "max": 26.5333,
+        "stdev": 2.3,
+        "n": 173
+      },
+      "[0.6, 0.7)": {
+        "mean": 0.6185,
+        "median": 0.393,
+        "min": 0.1399,
+        "max": 12.0952,
+        "stdev": 0.8824,
+        "n": 281
+      },
+      "[0.7, 0.8)": {
+        "mean": 0.5626,
+        "median": 0.4093,
+        "min": 0.2214,
+        "max": 8.4783,
+        "stdev": 0.6937,
+        "n": 211
+      },
+      "[0.8, 0.9)": {
+        "mean": 0.6666,
+        "median": 0.6203,
+        "min": 0.2376,
+        "max": 2.3605,
+        "stdev": 0.3176,
+        "n": 45
+      },
+      "[0.9, 1.0)": {
+        "mean": 0.7512,
+        "median": 0.7797,
+        "min": 0.2079,
+        "max": 0.9966,
+        "stdev": 0.1342,
+        "n": 118
+      },
+      "[0.9, 1.0]": {
+        "mean": 0.7537,
+        "median": 0.7763,
+        "min": 0.2079,
+        "max": 0.9966,
+        "stdev": 0.1341,
+        "n": 125
+      }
+    }
+  }
+}
