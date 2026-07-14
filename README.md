@@ -55,10 +55,10 @@ The base model exceeds CER 1.0 on the hardest buckets — meaning it inserts mor
 
 Full detailed results:
 ---
-[`evaluation/results/output/evaluation_report.md`](evaluation/results/output/evaluation_report.md)
+[`evaluation/results/output/evaluation_report.md`](evaluation/output/evaluation_report.md)
 ---
 
-Please check all artifacts, charts and eval scripts at at [`evaluation/results/`](evaluation/results)
+Please check all artifacts, charts and eval scripts at at [`evaluation/results/`](evaluation/)
 
 ---
 
@@ -176,7 +176,7 @@ MAX_EVAL_ITEMS = 1000          # set to None to run full 33k dataset
 UNCOMMON_CHAR_SCORE_MIN = 0.4  # lower for easier samples, raise for harder
 ```
 
-The script handles model download, vLLM server launch, evaluation loop, statistical testing, and report generation automatically. Results are written to `evaluation/results/`.
+The script handles model download, vLLM server launch, evaluation loop, statistical testing, and report generation automatically. Results are written to `evaluation/`.
 
 **Hardware:** The full 33k-row dataset requires significant GPU time. The 1,000-item subset (`MAX_EVAL_ITEMS = 1000`) runs in approximately 2–3 hours on a single A100.
 
