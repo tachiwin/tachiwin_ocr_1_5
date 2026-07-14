@@ -1,0 +1,49 @@
+pdf_hash,Pages,Base CER,Fine-tuned CER,CER Improvement,Base WER,Fine-tuned WER,Base Char Accuracy,Fine-tuned Char Accuracy,name,code,language,superlanguage,family,collection,source
+3d6086b073801b95457ebabb27f9f2ba5e0f38b235a40da5a6e7f60de323a800,275,0.7022,0.1837,73.8%,0.6758,0.3796,0.6023,0.8189,amu gramatica,amu,amuzgo del norte,Amuzgo,Otomangue,grammar,ilv
+3a3e77f8a79843aa55911057ef3fbaba2de29e9af27862df6ac4975d559b9587,218,0.2011,0.1373,31.7%,0.4191,0.3281,0.8178,0.8627,lac diccionario,lac,lacandón,Lacandón,Mayense,dictionary,ilv
+3821017ab17355121413db91daaa90205ba9dab101b9e7e628a0d1b2e1694337,184,0.4395,0.2672,39.2%,0.7536,0.6343,0.6211,0.7328,chz Diccionario chinanteco Ayotzintepec,chz,chinanteco del sureste alto,Chinanteco,Otomangue,dictionary,ilv
+2f22b175f84dfa923dbbacc5820da738234287990e6a46deaee8be21bcbab89b,52,2.6131,0.2789,89.3%,1.2654,0.3337,0.3171,0.7247,maj Tinchiyai,maj,mazateco del este bajo,Mazateco,Otomangue,,ilv
+095c6bea3354801cbd4d777dac8c0c759397e2c158fd5961724d296c8459651f,46,1.4471,0.3078,78.7%,1.0276,0.5992,0.4507,0.6922,zae gramatica,zae,"zapoteco serrano, del oeste medio",Zapoteco,Otomangue,grammar,ilv
+34245b2168a386da615771e7dea7043f3fb896ee315dc83feb11a6e05f8962ce,37,3.5421,0.4384,87.6%,2.2038,0.5546,0.1407,0.5782,amu ljo machee tito,amu,amuzgo del norte,Amuzgo,Otomangue,,ilv
+6fe4c85920beb3431e0032dcf1d9093be2c7fa6461fa2dfc474604f255558e35,33,0.1308,0.0728,44.3%,0.335,0.2811,0.8692,0.9272,vmp const cdmx,vmp,mazateco del noreste,Mazateco,Otomangue,,books
+27bfbeb48121e0492142a7d406ac7f5408ebb98ccb8244c7f791629b3e030655,19,1.2372,0.252,79.6%,0.8232,0.4008,0.4384,0.748,xtn Como escribimos vol2,xtn,mixteco del norte bajo,Mixteco,Otomangue,,ilv
+36455bcc9617625ddc3ab05125ac27119c3f2c1a169f6caf83ec8c6e62aa4505,14,0.7247,0.6656,8.2%,0.9248,0.8327,0.5755,0.6289,zad Adivinanzas,zad,,,,,ilv
+68668118d10d08c71263b6e6349863b0b7b0579508152b81b00c296679dd2a8e,12,0.1241,0.0316,74.6%,0.6203,0.2162,0.8759,0.9684,poi,poi,popoluca de la Sierra,Popoluca,Mixe-Zoqueano,legal,government
+e4553310cc432185560016a850dd8295d1a937c00a74f3525ed7ff70f4a9866d,12,0.1922,0.3525,-83.4%,0.2744,0.3489,0.8078,0.783,vmz Tiempo,vmz,mazateco del suroeste,Mazateco,Otomangue,,ilv
+de6b84e9223cef4cc2874574f26d5bb6ff56987155339fbd6da1ff4ec1825aee,8,0.2644,0.2519,4.7%,0.5303,0.5036,0.7356,0.7481,zad Mi peque%C3%B1o diccionario ilustrado,zad,,,,dictionary,ilv
+ed3d5f294fc37effcb1f4b787adb048da75dc4144970cb02e47f39612ce01419,7,0.6117,0.4138,32.4%,0.7759,0.4238,0.5506,0.5929,meh palabras pronuncian aire saliendo nariz leer,meh,mixteco del suroeste,Mixteco,Otomangue,writing_rules,ilv
+e77b53788fcb5df4d42f96cd3e109e442437f6cc36a469f093a5e5bd4713ad7b,7,0.2717,0.2731,-0.5%,0.4706,0.5243,0.7283,0.7269,mxb gramatica,mxb,mixteco del noroeste medio,Mixteco,Otomangue,grammar,ilv
+cfc885bd45a69539d18b87c844c1d9decac0d2751b1121869e1a6e08c9840219,6,0.7919,0.7526,5.0%,0.4295,0.2596,0.2725,0.3042,zpf como mueve tierra,zpf,"zapoteco de Sierra sur, del noreste alto",Zapoteco,Otomangue,,ilv
+7271ff9181682598d74722878963057defa58110a290b9e469fb75483f1f2036,5,0.1739,0.028,83.9%,0.4416,0.0841,0.8261,0.972,meh gato,meh,mixteco del suroeste,Mixteco,Otomangue,,ilv
+46732de90223332b917dd9ab6a72ee503d8a339b14f9f3b63022100f4d7915bc,5,0.6017,0.1092,81.9%,0.4328,0.1703,0.5719,0.8908,mim convOrt,mim,mixteco central de Guerrero,Mixteco,Otomangue,writing_rules,ilv
+19185af8e6fa6426bd1f3bb3274b92c76b4510d962fe3e977f6555130ad0970b,4,0.1042,0.0098,90.6%,0.4283,0.0292,0.8958,0.9902,zca para gente coatecas altas,zca,zapoteco de Valles del sur,Zapoteco,Otomangue,,ilv
+9a69b11b32d0a11a6fec715ce5c8ccd172e915e0da0bd0f5e7984fe2b8425d3b,4,0.284,0.0575,79.8%,0.4544,0.1624,0.716,0.9425,ztg siembra milpa,ztg,"zapoteco de la Sierra sur, del sureste alto",Zapoteco,Otomangue,,ilv
+ec2506ab3f4217ebbddc8d1e0234ebf5ab82d6d85a7d6b37ee981b4882665606,4,0.4236,0.423,0.1%,0.8218,0.6736,0.5764,0.577,jau jm kie jé jeu jëi,cuc,chinanteco del oeste central alto,Chinanteco,Otomangue,textbooks,sep
+e9fddd9c8047918c318330263232aa80bb6e16660cc0621e90f5b5d6c729ee75,4,1.465,0.1784,87.8%,1.2348,0.4672,0.4288,0.8216,zpc ConvOrth,zpc,zapoteco del oeste de Tuxtepec,Zapoteco,Otomangue,writing_rules,ilv
+ea3037cbf633149ae04f44414b516d854bc53365d19ced8e7c48f5f1ddfc1c38,3,1.4269,0.2046,85.7%,0.9245,0.3769,0.1063,0.7954,maa propuesta escribir eloxochitlan,maa,mazateco de Tecóatl,Mazateco,Otomangue,writing_rules,ilv
+5a8c538b77121131444004774ca29131da03ca319c1fc42eb5872513bfc2430c,3,0.8594,0.0971,88.7%,0.7045,0.2619,0.5834,0.9029,cle propusta convenciones escribir,cle,chinanteco central,Chinanteco,Otomangue,writing_rules,ilv
+7a41e4090bed3bf08b40965d133cb25cc6dcdfb90bd8b8579ff102ddc6678736,3,0.3156,0.2556,19.0%,0.5993,0.554,0.6844,0.7444,jmx construir casas adobe,jmx,mixteco del oeste,Mixteco,Otomangue,,ilv
+a241ac3dbdebe05450c36a595138aea6c5f30f5d24fde6b6e16bf591b6dcc50d,3,0.2831,0.2741,3.2%,0.3897,0.315,0.7169,0.7259,popoluca-de-la-sierra-guia-atencion-pueblos-indigenas-afromexicano-covid19,poi,popoluca de la Sierra,Popoluca,Mixe-Zoqueano,covid,ssa
+22f280a28bcd8ac3d7cd57c35eae9715bb17728cbb99d45e8b4b144ab0a8250a,2,0.0817,0.0379,53.6%,0.4132,0.216,0.9183,0.9621,zaw juan el carbonero,zaw,"zapoteco de Valles, del este medio",Zapoteco,Otomangue,,ilv
+b9503fb0bef280cfa033a97b81549c3c36f00526aca9dcaf56c396d002973404,2,0.0616,0.068,-10.3%,0.2099,0.2301,0.9384,0.932,documento 4,,,,,academic,
+dc962399cb712adf5cb5da1d591820217d3c4c03cea02241a133e41ea6cf86dc,2,0.0506,0.0495,2.2%,0.1631,0.1837,0.9494,0.9504,Mi mama Otomi,ote,otomí del Valle del Mezquital,Otomí,Otomangue,audio_stories,
+fd5319d4c7d3975d799dd3d86008c61122520a7856d2ed21325bc5995f44b74b,2,0.2363,0.152,35.7%,0.6814,0.6026,0.7637,0.848,ztg varios tipos salsas,ztg,"zapoteco de la Sierra sur, del sureste alto",Zapoteco,Otomangue,,ilv
+3bdde4164c4c074a93373a6e7dc8f91163f862a694a88be2cffc77d47e291117,2,0.6448,0.6106,5.3%,0.5234,0.3658,0.3552,0.3894,zca benito juarez,zca,zapoteco de Valles del sur,Zapoteco,Otomangue,,ilv
+7c50115f3dd6def7aa7450878ceaa995d1961407e62299630b028bc9eab38460,2,0.279,0.0485,82.6%,0.4786,0.1612,0.721,0.9515,ztg no hay comer,ztg,"zapoteco de la Sierra sur, del sureste alto",Zapoteco,Otomangue,,ilv
+0c4f343b8bdd326ffc605216b198e1c83039f796363c3553ba3ab5108356e2d7,2,0.4992,0.2997,40.0%,0.4838,0.4459,0.5008,0.7003,nhx 23e Fonemas nhx,nhx,náhuatl del Istmo,Náhuatl,Yuto-Nahua,,ilv
+ea546774e6a90ef45d9a9a003fda476e90b71c31bed8fa7db4ab1ca113e072cc,2,1.8825,0.5226,72.2%,1.1325,0.5575,0.4069,0.4774,mix parangon,mix,mixteco de Ñumi,Mixteco,Otomangue,,ilv
+840d1c3e70dda466cae77b2a577fc674c697b38a7129e3efa77228d7f0c2bc4f,2,2.0158,0.2197,89.1%,1.1836,0.2512,0.4565,0.7803,mib LeerMixteco,mib,,,,,ilv
+2b3e63ae5fc1805a580c58c1d5e06f7e107333a629f6c46b53be0ac29c239b70,1,0.718,0.5676,20.9%,0.4946,0.4731,0.282,0.4324,mix aves,mix,mixteco de Ñumi,Mixteco,Otomangue,dictionary,ilv
+2bc96a19bef976cfb42a59a6baea2f8af5384cdfbf8b951b80f60283995bf565,1,0.1091,0.097,11.1%,0.2607,0.2376,0.8909,0.903,Que cosa mas rara Otomi,ote,otomí del Valle del Mezquital,Otomí,Otomangue,audio_stories,
+187fe1ca20a09c8e72282c79b97b662dacf859bcfb18c6217521494ccc32d9b2,1,0.1167,0.125,-7.1%,0.2824,0.3341,0.8833,0.875,xtn GramPopular,xtn,mixteco del norte bajo,Mixteco,Otomangue,grammar,ilv
+10f40f5d54899d597a251086384f5a750390d24b98a82c686623d9b1ee7d2e84,1,0.3253,0.2651,18.5%,0.9167,0.8333,0.6747,0.7349,mza Alfabeto en mixteco,mza,mixteco de Sierra sur oeste,Mixteco,Otomangue,writing_rules,ilv
+18ad1681fa9da635c482f616ed284f96a2456356135c508a3046723fce0db658,1,0.5067,0.4704,7.2%,0.6083,0.45,0.4933,0.5296,zpt diccionario ilustrado,zpt,zapoteco de San Vicente Coatlán,Zapoteco,Otomangue,dictionary,ilv
+27aa69f65c2536c8fe3cd6b473ce9436dab4c40f5b62cc430d157890601d4d71,1,0.1447,0.0881,39.1%,0.3235,0.2353,0.8553,0.9119,vmj Sikiyo,vmj,mixteco de Ixtayutla,Mixteco,Otomangue,,ilv
+314a94bf51a251eb9a828ece461d690b1c3a1da524196a81aedb3c407b3322e2,1,0.1203,0.038,68.4%,0.5,0.1071,0.8797,0.962,ztg casaban antes leer,ztg,"zapoteco de la Sierra sur, del sureste alto",Zapoteco,Otomangue,,ilv
+9246e28741d3c23b29c91306c9d9a71411c5a1c356e4ffbfa3f73c9398e535f5,1,0.0973,0.0302,69.0%,0.2692,0.1731,0.9027,0.9698,meh pato,meh,mixteco del suroeste,Mixteco,Otomangue,,ilv
+87f2abb607c5f71c8be3801f7b2ed9cf63253476d7063295bc668c9209b8b703,1,0.1715,0.0803,53.2%,0.3556,0.2444,0.8285,0.9197,ztg algunas cosas,ztg,"zapoteco de la Sierra sur, del sureste alto",Zapoteco,Otomangue,,ilv
+48e87dbd21e072199759c79bdf704b5118f41f1268b66a315211f8a220205b31,1,1.605,0.7636,52.4%,0.9604,0.8812,0.0,0.2364,hch escribiendo,hch,huichol del norte,Huichol,Yuto-Nahua,writing_rules,ilv
+4273051baa954c8699967895ae074384e75760ab82cf818935e0ba9f2071c008,1,0.5195,0.5073,2.3%,2.0417,1.9583,0.4805,0.4927,zpg contemos animalitos numeros,zpg,"zapoteco de la montaña del Istmo, bajo",Zapoteco,Otomangue,,ilv
+90ebd33c069d49c48c93b78cdb2289e92687e0c84f5af9c2b6470aa65f63624f,1,0.0712,0.0757,-6.3%,0.1905,0.188,0.9288,0.9243,sei ConvOrt 2019,sei,seri,Seri,Seri,writing_rules,ilv
+99814cfac40bd9a3d30061fc8f8577f416c57a8f32dd40d34d825ebbe5ef6804,1,0.0708,0.0181,74.4%,0.3219,0.0753,0.9292,0.9819,zca labores mujeres coatecas altas,zca,zapoteco de Valles del sur,Zapoteco,Otomangue,rights,ilv
+e7a661bb0627c9e273d073b6ff5cec485ff4ac93ed4280db60e2b9ab47d7bac9,1,16.1618,1.0,93.8%,26.5333,1.0,0.0,0.0,hch silabas,hch,huichol del norte,Huichol,Yuto-Nahua,,ilv

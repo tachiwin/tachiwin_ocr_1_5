@@ -53,7 +53,12 @@ Each page is assigned an `uncommon_char_score` based on the log-scaled density o
 
 The base model exceeds CER 1.0 on the hardest buckets — meaning it inserts more characters than the reference contains. The fine-tuned model brings every bucket below 0.31.
 
-Full results: [`evaluation/results/report_1000.txt`](evaluation/results/report_1000.txt) · [`evaluation/results/eval_comparison.json`](evaluation/results/eval_comparison.json) · [`evaluation/results/eval_finetuned.json`](evaluation/results/eval_finetuned.json) · [`evaluation/results/eval_base.json`](evaluation/results/eval_base.json)
+Full detailed results:
+---
+[`evaluation/results/output/evaluation_report.md`](evaluation/results/output/evaluation_report.md)
+---
+
+Please check all artifacts, charts and eval scripts at at [`evaluation/results/`](evaluation/results)
 
 ---
 
