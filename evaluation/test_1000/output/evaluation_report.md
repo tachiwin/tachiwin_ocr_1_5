@@ -1,6 +1,6 @@
 # Tachiwin-OCR-1.5 Evaluation Report
 
-1000-page benchmark · uncommon_char_score ≥ 0.4  |  Run: 2026-07-14 17:30:01
+1000-page benchmark · uncommon_char_score ≥ 0.4  |  Run: 2026-07-18 01:15:34 · test-dynamic-buckets
 
 
 **Base model:** [PaddleOCR-VL-1.5](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5)  ·  **Fine-tuned model:** [Tachiwin-OCR-1.5](https://huggingface.co/tachiwin/Tachiwin-OCR-1.5)

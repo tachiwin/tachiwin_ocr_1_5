@@ -1,0 +1,5 @@
+family,Pages,Base CER,Fine-tuned CER,CER Improvement,Base WER,Fine-tuned WER,Base Char Accuracy,Fine-tuned Char Accuracy,p-value,Significance
+Otomangue,1512,0.902,0.2388,73.5%,0.7671,0.4523,0.5738,0.7672,0.0,***
+Mayense,431,0.3215,0.2004,37.7%,0.5292,0.4381,0.7284,0.7996,0.0,***
+Mixe-Zoqueano,16,0.1489,0.0766,48.5%,0.5453,0.2266,0.8511,0.9234,0.0,***
+Yuto-Nahua,8,2.383,0.3254,86.3%,3.6416,0.4309,0.5879,0.6746,0.3088,ns

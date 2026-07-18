@@ -53,8 +53,8 @@ BASE_MODEL_DIR      = "model_base"
 # ── Dataset ───────────────────────────────────────────────────────────────────
 HF_TOKEN                = ""    # leave empty — repos are public
 EVAL_DATASET_ID         = "tachiwin/ocr-test-challenging-3"
-UNCOMMON_CHAR_SCORE_MIN = 0.4   # rows below this threshold are skipped
-MAX_EVAL_ITEMS          = 1000   # items per model run; set to None for all
+UNCOMMON_CHAR_SCORE_MIN = 0.3   # rows below this threshold are skipped
+MAX_EVAL_ITEMS          = 2000   # items per model run; set to None for all
 
 # ── Output files ──────────────────────────────────────────────────────────────
 JSON_FINETUNED  = "eval_finetuned.json"

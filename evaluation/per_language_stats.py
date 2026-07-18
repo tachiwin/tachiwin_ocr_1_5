@@ -232,6 +232,17 @@ doc_stats.to_csv(DOC_STATS_FILE, index=False)
 print(f"  {len(doc_stats)} documents → {DOC_STATS_FILE}")
 
 
+# ── Dynamic bucket defs from data ───────────────────────────────────────────
+import math
+score_min = df['uncommon_char_score'].min()
+score_lo  = math.floor(score_min * 10) / 10  # e.g. 0.34 → 0.3, 0.47 → 0.4
+bucket_defs = [(round(i*0.1, 1), round((i+1)*0.1, 1))
+               for i in range(int(score_lo*10), 10)]
+# Drop any bin whose lower bound is above the actual max score
+bucket_defs = [(lo, hi) for lo, hi in bucket_defs if lo < df['uncommon_char_score'].max()]
+print(f"  Score range in data: {score_min:.4f} – {df['uncommon_char_score'].max():.4f}")
+print(f"  Buckets: {bucket_defs}")
+
 # ── Charts ────────────────────────────────────────────────────────────────────
 print("\nGenerating charts...")
 print("\n=== Chart SD debug — overall ===")
@@ -418,7 +429,6 @@ ax.set_ylabel("Mean Char Accuracy"); ax.set_title("Overall Char Accuracy: Base v
 savefig("03_overall_accuracy", "Overall Char Accuracy comparison", "general")
 
 # ── 04. CER by bucket ─────────────────────────────────────────────────────────
-bucket_defs = [(0.4,0.5),(0.5,0.6),(0.6,0.7),(0.7,0.8),(0.8,0.9),(0.9,1.0)]
 b_labels, b_base, b_ft, b_base_sd, b_ft_sd, b_sigs = [], [], [], [], [], []
 for lo, hi in bucket_defs:
     g = df[(df["uncommon_char_score"] >= lo) & (df["uncommon_char_score"] < hi)]
@@ -439,7 +449,6 @@ grouped_bar_chart(ax, x, b_labels, b_base, b_ft, b_base_sd, b_ft_sd,
 savefig("04_cer_by_bucket", "CER by difficulty bucket", "general")
 
 # ── 05. WER by bucket ────────────────────────────────────────────────────────────
-bucket_defs = [(0.4,0.5),(0.5,0.6),(0.6,0.7),(0.7,0.8),(0.8,0.9),(0.9,1.0)]
 b_labels_w, b_base_w, b_ft_w, b_base_sd_w, b_ft_sd_w, b_sigs_w = [], [], [], [], [], []
 for lo, hi in bucket_defs:
     g = df[(df["uncommon_char_score"] >= lo) & (df["uncommon_char_score"] < hi)]
@@ -460,7 +469,6 @@ grouped_bar_chart(ax, x, b_labels_w, b_base_w, b_ft_w, b_base_sd_w, b_ft_sd_w,
 savefig("05_wer_by_bucket", "WER by difficulty bucket", "general")
 
 # ── 06. Char Accuracy by bucket ──────────────────────────────────────────────────
-bucket_defs = [(0.4,0.5),(0.5,0.6),(0.6,0.7),(0.7,0.8),(0.8,0.9),(0.9,1.0)]
 b_labels_a, b_base_a, b_ft_a, b_base_sd_a, b_ft_sd_a, b_sigs_a = [], [], [], [], [], []
 for lo, hi in bucket_defs:
     g = df[(df["uncommon_char_score"] >= lo) & (df["uncommon_char_score"] < hi)]
@@ -670,7 +678,7 @@ print(f"  {sum(len(v) for v in chart_refs.values())} charts saved to {CHARTS_DIR
 print(f"\nWriting {REPORT_FILE}...")
 md = [
     "# Tachiwin-OCR-1.5 Evaluation Report\n",
-    f"{n_pages}-page benchmark · uncommon_char_score ≥ 0.4  |  Run: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}{' · ' + RUN_LABEL if RUN_LABEL else ''}\n",
+    f"{n_pages}-page benchmark · uncommon_char_score ≥ {score_min:.1f}  |  Run: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}{' · ' + RUN_LABEL if RUN_LABEL else ''}\n",
     "",
     "**Base model:** [PaddleOCR-VL-1.5](https://huggingface.co/PaddlePaddle/PaddleOCR-VL-1.5)  "
     "·  **Fine-tuned model:** [Tachiwin-OCR-1.5](https://huggingface.co/tachiwin/Tachiwin-OCR-1.5)\n",
@@ -685,7 +693,7 @@ for caption, path in chart_refs.get("general", []):
 # Bucket table with significance
 md.append("\n## By uncommon_char_score bucket\n")
 bucket_rows = []
-for lo, hi in [(0.4,0.5),(0.5,0.6),(0.6,0.7),(0.7,0.8),(0.8,0.9),(0.9,1.0)]:
+for lo, hi in bucket_defs:
     g = df[(df["uncommon_char_score"] >= lo) & (df["uncommon_char_score"] < hi)]
     if len(g) < 3:
         continue
