@@ -27,38 +27,37 @@ Tachiwin-OCR-1.5 addresses this gap by fine-tuning PaddleOCR-VL-1.5 on a purpose
 
 ## Benchmark results
 
-Evaluated on [`tachiwin/ocr-test-challenging-3`](https://huggingface.co/datasets/tachiwin/ocr-test-challenging-3) — 1,000 real PDF-derived pages filtered for indigenous character density (`uncommon_char_score ≥ 0.4`). Both models run the **identical PaddleOCR-VL pipeline** (layout detection → OCR → markdown); the only variable is the OCR model weights.
+Evaluated on [`tachiwin/ocr-test-challenging-3`](https://huggingface.co/datasets/tachiwin/ocr-test-challenging-3) — **2,000 real PDF-derived pages** with `uncommon_char_score ≥ 0.3` (report date: 2026-07-18). Both models run the **identical PaddleOCR-VL pipeline** (layout detection → OCR → markdown); the only variable is the OCR model weights.
 
 | Metric | Base (PaddleOCR-VL-1.5) | Tachiwin-OCR-1.5 | Improvement |
 |:---|:---:|:---:|:---:|
-| **CER ↓** | 0.760 | 0.221 | **−71% relative** |
-| **WER ↓** | 0.745 | 0.430 | **−42% relative** |
-| **Char accuracy ↑** | 62.7% | 78.7% | **+16.0 pp** |
-| **Word accuracy ↑** | 44.4% | 57.7% | **+13.3 pp** |
+| **CER ↓** | 0.773 | 0.232 | **−70% relative** |
+| **WER ↓** | 0.725 | 0.449 | **−38% relative** |
+| **Char accuracy ↑** | 61.0% | 77.4% | **+16.4 pp** |
+| **Word accuracy ↑** | 44.6% | 56.6% | **+12.0 pp** |
 
-All improvements statistically significant: **Wilcoxon signed-rank test p < 0.0001** (n = 1,000 paired samples).
+All improvements statistically significant: **Wilcoxon signed-rank test p < 0.0001** (n = 2,000 paired samples).
 
 ### CER by difficulty bucket
 
-Each page is assigned an `uncommon_char_score` based on the log-scaled density of indigenous-specific characters (see [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py)). Higher score = greater indigenous character density = harder for a base model.
+Each page is assigned an `uncommon_char_score` based on the log-scaled density of indigenous-specific characters (see [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py)). Higher score = greater indigenous character density = harder for a base model. Buckets are computed dynamically from the data range.
 
 | Bucket | n | Base CER | Fine-tuned CER | Reduction |
 |:---:|:---:|:---:|:---:|:---:|
-| [0.4, 0.5) | 165 | 1.295 | 0.304 | **−77%** |
-| [0.5, 0.6) | 173 | 1.346 | 0.273 | **−80%** |
-| [0.6, 0.7) | 281 | 0.589 | 0.165 | **−72%** |
-| [0.7, 0.8) | 211 | 0.406 | 0.152 | **−63%** |
-| [0.8, 0.9) | 45  | 0.370 | 0.256 | **−31%** |
-| [0.9, 1.0] | 243 | 0.364 | 0.269 | **−26%** |
+| [0.3, 0.4) | 351 | 0.793 | 0.241 | **−70%** |
+| [0.4, 0.5) | 316 | 0.833 | 0.235 | **−72%** |
+| [0.5, 0.6) | 280 | 1.010 | 0.245 | **−76%** |
+| [0.6, 0.7) | 424 | 0.542 | 0.198 | **−63%** |
+| [0.7, 0.8) | 260 | 0.433 | 0.190 | **−56%** |
+| [0.8, 0.9) | 106 | 0.786 | 0.252 | **−68%** |
+| [0.9, 1.0) | 242 | 1.065 | 0.292 | **−73%** |
 
-The base model exceeds CER 1.0 on the hardest buckets — meaning it inserts more characters than the reference contains. The fine-tuned model brings every bucket below 0.31.
+The base model exceeds CER 1.0 on the hardest buckets — meaning it inserts more characters than the reference contains. The fine-tuned model brings every bucket below 0.30.
 
-Full detailed results:
----
-[`evaluation/results/output/evaluation_report.md`](evaluation/output/evaluation_report.md)
----
+**Full report with charts:**
+[`evaluation/test_2000/output/evaluation_report.md`](evaluation/test_2000/output/evaluation_report.md)
 
-Please check all artifacts, charts and eval scripts at at [`evaluation/results/`](evaluation/)
+See also all eval scripts, per-language stats, and chart artifacts in the [`evaluation/`](evaluation/) directory.
 
 ---
 
@@ -172,13 +171,28 @@ python evaluation/tachiwin_ocr_comparison_eval.py
 **Key parameters** (edit at top of script):
 
 ```python
-MAX_EVAL_ITEMS = 1000          # set to None to run full 33k dataset
-UNCOMMON_CHAR_SCORE_MIN = 0.4  # lower for easier samples, raise for harder
+MAX_EVAL_ITEMS = 2000          # set to None to run full 33k dataset
+UNCOMMON_CHAR_SCORE_MIN = 0.3  # lower for easier samples, raise for harder
 ```
 
 The script handles model download, vLLM server launch, evaluation loop, statistical testing, and report generation automatically. Results are written to `evaluation/`.
 
-**Hardware:** The full 33k-row dataset requires significant GPU time. The 1,000-item subset (`MAX_EVAL_ITEMS = 1000`) runs in approximately 2–3 hours on a single A100.
+After obtaining eval JSONs, generate per-language stats and charts:
+
+```bash
+cd evaluation
+python per_language_stats.py \
+  --finetuned test_2000/eval_finetuned.json \
+  --base test_2000/eval_base.json \
+  --cache test_2000/eval_metadata_cache.json \
+  --catalog pdfs_metadata.json \
+  --output-dir test_2000/output \
+  --run-label "challenging-3-2000"
+```
+
+See `python per_language_stats.py --help` for all options.
+
+**Hardware:** The full 33k-row dataset requires significant GPU time. The 2,000-item subset (`MAX_EVAL_ITEMS = 2000`) runs in approximately 4–6 hours on a single A100.
 
 ---
 
@@ -221,12 +235,39 @@ tachiwin_ocr_1_5/
 │   └── Tachiwin_OCR_PaddleOCR_VL_1_5_Finetuning.ipynb
 │
 ├── evaluation/
+│   ├── per_language_stats.py             # Per-language stats, charts, and report
+│   ├── generate_metadata_cache.py        # Build metadata cache from HF dataset
+│   ├── pdfs_metadata.json                # Shared PDF catalog (metadata per pdf_hash)
 │   ├── tachiwin_ocr_comparison_eval.py   # Full eval + statistical comparison
-│   └── results/
-│       ├── report_1000.txt          # 1000-item summary report
-│       ├── eval_finetuned.json      # Per-item fine-tuned results
-│       ├── eval_base.json           # Per-item base model results
-│       └── eval_comparison.json     # Paired comparison + statistics
+│   ├── eval_tachiwin_colab.py            # Colab-adapted eval variant
+│   ├── run_modified_eval.py              # Modified eval runner
+│   ├── test_1000/                        # 1,000-page benchmark (uncommon ≥ 0.4)
+│   │   ├── eval_base.json
+│   │   ├── eval_finetuned.json
+│   │   ├── eval_comparison.json
+│   │   ├── eval_metadata_cache.json
+│   │   └── output/
+│   │       ├── evaluation_report.md      # Full report with charts (markdown)
+│   │       ├── stats_by_code.csv         # Per-language CER/WER/Acc
+│   │       ├── stats_by_document.csv     # Per-document CER/WER/Acc
+│   │       ├── stats_by_superlanguage.csv
+│   │       ├── stats_by_family.csv
+│   │       ├── stats_by_collection.csv
+│   │       ├── stats_by_source.csv
+│   │       └── charts/                   # 16 PNG charts (see report for links)
+│   └── test_2000/                        # 2,000-page benchmark (uncommon ≥ 0.3)
+│       ├── eval_base.json
+│       ├── eval_finetuned.json
+│       ├── eval_metadata_cache.json
+│       └── output/
+│           ├── evaluation_report.md      # Full report with charts (markdown)
+│           ├── stats_by_code.csv
+│           ├── stats_by_document.csv
+│           ├── stats_by_superlanguage.csv
+│           ├── stats_by_family.csv
+│           ├── stats_by_collection.csv
+│           ├── stats_by_source.csv
+│           └── charts/                   # 16 PNG charts (see report for links)
 │
 ├── dataset/
 │   ├── uncommon_chars.py            # Character set definition + scoring function
