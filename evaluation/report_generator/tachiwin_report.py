@@ -774,7 +774,12 @@ perf_rows = [
 story.append(dtable(perf_rows[0], perf_rows[1:],
                     cw=[3.2*cm, 2.6*cm, 3.2*cm, 2.2*cm, 2.2*cm, 2.6*cm]))
 story.append(spacer(0.3))
+story.append(RLImage("chart_01_overall_cer.png", width=TW*0.46, height=4.5*cm))
+story.append(RLImage("chart_02_overall_wer.png", width=TW*0.46, height=4.5*cm))
+story.append(RLImage("chart_03_overall_accuracy.png", width=TW*0.46, height=4.5*cm))
+story.append(spacer(0.3))
 
+story.append(PageBreak())
 story.append(h2("4.4 CER by score range"))
 story.append(body(
     "For analysis, the continuous uncommon_char_score of each evaluated page is "
@@ -797,13 +802,153 @@ diff_rows = [
 story.append(dtable(diff_rows[0], diff_rows[1:],
                     cw=[2.4*cm, 2.0*cm, 2.5*cm, 2.4*cm, 3.0*cm, 2.7*cm]))
 story.append(spacer(0.3))
-story.append(cer_chart())
-story.append(caption(
-    "Figure 4: Mean CER per uncommon_char_score range. Lower is better. "
-    "Red = PaddleOCR-VL-1.5 base. Green = Tachiwin-OCR-1.5."
-))
+# Inline chart (kept for reference — alternative to the PNG charts below)
+# story.append(cer_chart())
+# story.append(caption(
+#     "Figure 4: Mean CER per uncommon_char_score range. Lower is better. "
+#     "Red = PaddleOCR-VL-1.5 base. Green = Tachiwin-OCR-1.5."))
+story.append(RLImage("chart_04_cer_by_bucket.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_05_wer_by_bucket.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_06_characc_by_bucket.png", width=TW*0.95, height=6*cm))
 story.append(spacer(0.2))
-story.append(h2("4.5 Key findings"))
+
+story.append(PageBreak())
+# ── 4.5 Per-language results ─────────────────────────────────────────────────
+story.append(h2("4.5 Per-language results"))
+story.append(body(
+    "The chart below shows CER by language code (sorted by improvement, descending). "
+    "Languages with larger sample sizes (e.g., Amuzgo 328 pages, Chinanteco 217 pages) "
+    "show the most reliable improvement estimates. Low-N languages (≤ 7 pages) "
+    "often lack statistical significance despite large point estimates."
+))
+story.append(RLImage("chart_14_code_cer.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_15_code_improvement.png", width=TW*0.95, height=6*cm))
+story.append(spacer(0.1))
+story.append(body(
+    "The following table lists the largest languages by page count (≥ 20 pages). "
+    "Full results for all 30 languages are in the repository."
+))
+story.append(spacer(0.1))
+lang_rows = [
+    ["Code", "Language", "Pages", "Base CER", "FT CER", "Improvement", "Sig."],
+    ["amu",  "Amuzgo",       "328", "1.054", "0.219", "−79%",  "***"],
+    ["lac",  "Lacandón",     "431", "0.322", "0.200", "−38%",  "**"],
+    ["cco",  "Chinanteco",   "217", "1.584", "0.325", "−79%",  "***"],
+    ["chz",  "Chinanteco",   "187", "0.439", "0.264", "−40%",  "***"],
+    ["zae",  "Zapoteco",     "165", "1.179", "0.281", "−76%",  "***"],
+    ["otm",  "Otomí",        "146", "0.340", "0.143", "−58%",  "***"],
+    ["zpl",  "Zapoteco",     "76",  "0.380", "0.190", "−50%",  "*"],
+    ["maj",  "Mazateco",     "64",  "2.534", "0.282", "−89%",  "***"],
+    ["mxb",  "Mixteco",      "50",  "0.362", "0.211", "−42%",  "**"],
+    ["ote",  "Otomí",        "42",  "0.242", "0.205", "−15%",  "ns"],
+    ["ztg",  "Zapoteco",     "42",  "0.237", "0.125", "−47%",  "**"],
+    ["vmp",  "Mazateco",     "33",  "0.131", "0.073", "−44%",  "***"],
+    ["xtn",  "Mixteco",      "32",  "1.201", "0.196", "−84%",  "*"],
+    ["jmx",  "Mixteco",      "22",  "0.498", "0.088", "−82%",  "***"],
+]
+story.append(dtable(lang_rows[0], lang_rows[1:],
+                    cw=[1.2*cm, 2.8*cm, 1.2*cm, 1.8*cm, 1.8*cm, 1.8*cm, 1.2*cm]))
+story.append(spacer(0.3))
+
+story.append(PageBreak())
+# ── 4.6 Per-superlanguage results ────────────────────────────────────────────
+story.append(h2("4.6 Per-superlanguage results"))
+story.append(body(
+    "Grouping languages by superlanguage shows clear performance variation across "
+    "all three metrics — CER, WER, and character accuracy."
+))
+story.append(RLImage("chart_07_superlanguage_cer.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_08_superlanguage_wer.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_09_superlanguage_accuracy.png", width=TW*0.95, height=6*cm))
+story.append(spacer(0.1))
+sl_rows = [
+    ["Superlanguage", "Pages", "Base CER", "FT CER", "Improvement", "Sig."],
+    ["Lacandón",      "431", "0.322", "0.200", "−38%",  "**"],
+    ["Chinanteco",    "412", "1.049", "0.297", "−72%",  "***"],
+    ["Amuzgo",        "328", "1.054", "0.219", "−79%",  "***"],
+    ["Zapoteco",      "319", "0.814", "0.249", "−69%",  "***"],
+    ["Otomí",         "188", "0.318", "0.157", "−51%",  "***"],
+    ["Mixteco",       "146", "0.620", "0.214", "−66%",  "***"],
+    ["Mazateco",      "117", "1.505", "0.224", "−85%",  "***"],
+    ["Popoluca",       "16", "0.149", "0.077", "−49%",  "***"],
+    ["Náhuatl",         "6", "0.216", "0.140", "−35%",   "ns"],
+]
+story.append(dtable(sl_rows[0], sl_rows[1:],
+                    cw=[2.8*cm, 1.4*cm, 2.0*cm, 2.0*cm, 2.2*cm, 1.4*cm]))
+story.append(spacer(0.3))
+
+story.append(PageBreak())
+# ── 4.7 Per-family results ───────────────────────────────────────────────────
+story.append(h2("4.7 Per-family results"))
+story.append(body(
+    "At the language family level, Otomangue (1,512 pages, 73.5% reduction) dominates "
+    "the evaluation set as the largest family. Yuto-Nahua shows the most dramatic "
+    "improvement (86.3%) but is limited by its small sample size (8 pages, ns)."
+))
+story.append(RLImage("chart_10_family_cer.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_11_family_improvement.png", width=TW*0.95, height=6*cm))
+story.append(spacer(0.1))
+fam_rows = [
+    ["Family", "Pages", "Base CER", "FT CER", "Improvement", "Sig."],
+    ["Otomangue",    "1512", "0.902", "0.239", "−74%",  "***"],
+    ["Mayense",       "431", "0.322", "0.200", "−38%",  "**"],
+    ["Mixe-Zoqueano",  "16", "0.149", "0.077", "−49%",  "***"],
+    ["Yuto-Nahua",      "8", "2.383", "0.325", "−86%",   "ns"],
+]
+story.append(dtable(fam_rows[0], fam_rows[1:],
+                    cw=[2.8*cm, 1.4*cm, 2.0*cm, 2.0*cm, 2.2*cm, 1.4*cm]))
+story.append(spacer(0.3))
+
+story.append(PageBreak())
+# ── 4.8 Per-collection results ───────────────────────────────────────────────
+story.append(h2("4.8 Per-collection results"))
+story.append(body(
+    "Dictionaries (643 pages) and grammars (632 pages) form the bulk of the evaluation set, "
+    "both showing strong improvements (−37% and −72% respectively). Legal documents show "
+    "the lowest absolute CER after fine-tuning (0.032) despite their small sample."
+))
+story.append(RLImage("chart_12_collection_cer.png", width=TW*0.95, height=6*cm))
+story.append(spacer(0.1))
+col_rows = [
+    ["Collection", "Pages", "Base CER", "FT CER", "Improvement", "Sig."],
+    ["dictionary",     "643", "0.357", "0.223", "−37%",  "***"],
+    ["grammar",        "632", "0.730", "0.203", "−72%",  "***"],
+    ["academic",       "44",  "0.241", "0.206", "−15%",   "ns"],
+    ["writing_rules",  "35",  "0.856", "0.269", "−69%",  "***"],
+    ["legal",          "12",  "0.124", "0.032", "−75%",  "***"],
+    ["textbooks",       "4",  "0.424", "0.423",  "−0%",   "ns"],
+    ["covid",           "3",  "0.283", "0.274",  "−3%",   "ns"],
+    ["audio_stories",   "3",  "0.070", "0.065",  "−7%",   "ns"],
+]
+story.append(dtable(col_rows[0], col_rows[1:],
+                    cw=[2.8*cm, 1.4*cm, 2.0*cm, 2.0*cm, 2.2*cm, 1.4*cm]))
+story.append(spacer(0.3))
+
+story.append(PageBreak())
+# ── 4.9 Per-source results ───────────────────────────────────────────────────
+story.append(h2("4.9 Per-source results"))
+story.append(body(
+    "The vast majority of pages (1,937 of 2,000) come from the ILV (Instituto Lingüístico "
+    "de Verano) source, reflecting the primary institutional source of indigenous language "
+    "documentation in Mexico. Government and books sources show excellent post-fine-tuning CER."
+))
+story.append(RLImage("chart_13_source_cer.png", width=TW*0.95, height=6*cm))
+story.append(spacer(0.1))
+src_rows = [
+    ["Source", "Pages", "Base CER", "FT CER", "Improvement", "Sig."],
+    ["ilv",        "1937", "0.793", "0.236", "−70%",  "***"],
+    ["books",       "33",  "0.131", "0.073", "−44%",  "***"],
+    ["government",  "12",  "0.124", "0.032", "−75%",  "***"],
+    ["sep",          "4",  "0.424", "0.423",  "−0%",   "ns"],
+    ["ssa",          "3",  "0.283", "0.274",  "−3%",   "ns"],
+]
+story.append(dtable(src_rows[0], src_rows[1:],
+                    cw=[2.8*cm, 1.4*cm, 2.0*cm, 2.0*cm, 2.2*cm, 1.4*cm]))
+story.append(spacer(0.3))
+
+story.append(PageBreak())
+# ── 4.10 Key findings ────────────────────────────────────────────────────────
+story.append(h2("4.10 Key findings"))
 for finding in [
     "<b>Catastrophic base model failure on low-score pages:</b> The base model exceeds "
     "CER 1.0 in the [0.3–0.6) score ranges — meaning it inserts more spurious characters "
@@ -827,35 +972,8 @@ for finding in [
 ]:
     story.append(bullet(finding))
     story.append(spacer(0.05))
-
-# ── 4.6 Per-language results ─────────────────────────────────────────────────
-story.append(h2("4.6 Per-language results"))
-story.append(body(
-    "The following table breaks down CER by language code for the largest languages "
-    "in the evaluation set (≥ 30 pages). Full results for all 30 languages are "
-    "available in the repository."
-))
-story.append(spacer(0.1))
-lang_rows = [
-    ["Code", "Language", "Family", "Pages", "Base CER", "FT CER", "Improvement", "Sig."],
-    ["amu",  "Amuzgo",       "Otomangue",    "328", "1.054", "0.219", "−79%",  "***"],
-    ["cco",  "Chinanteco",   "Otomangue",    "217", "1.584", "0.325", "−79%",  "***"],
-    ["chz",  "Chinanteco",   "Otomangue",    "187", "0.439", "0.264", "−40%",  "***"],
-    ["lac",  "Lacandón",     "Mayense",      "431", "0.322", "0.200", "−38%",  "**"],
-    ["maj",  "Mazateco",     "Otomangue",    "64",  "2.534", "0.282", "−89%",  "***"],
-    ["otm",  "Otomí",        "Otomangue",    "146", "0.340", "0.143", "−58%",  "***"],
-    ["zae",  "Zapoteco",     "Otomangue",    "165", "1.179", "0.281", "−76%",  "***"],
-    ["zpl",  "Zapoteco",     "Otomangue",    "76",  "0.380", "0.190", "−50%",  "*"],
-    ["mxb",  "Mixteco",      "Otomangue",    "50",  "0.362", "0.211", "−42%",  "**"],
-    ["ote",  "Otomí",        "Otomangue",    "42",  "0.242", "0.205", "−15%",  "ns"],
-    ["ztg",  "Zapoteco",     "Otomangue",    "42",  "0.237", "0.125", "−47%",  "**"],
-    ["vmp",  "Mazateco",     "Otomangue",    "33",  "0.131", "0.073", "−44%",  "***"],
-    ["xtn",  "Mixteco",      "Otomangue",    "32",  "1.201", "0.196", "−84%",  "*"],
-    ["jmx",  "Mixteco",      "Otomangue",    "22",  "0.498", "0.088", "−82%",  "***"],
-]
-story.append(dtable(lang_rows[0], lang_rows[1:],
-                    cw=[1.2*cm, 2.2*cm, 2.4*cm, 1.2*cm,
-                        1.8*cm, 1.8*cm, 1.8*cm, 1.2*cm]))
+story.append(spacer(0.2))
+story.append(RLImage("chart_16_scatter_coverage_improvement.png", width=TW*0.95, height=6*cm))
 story.append(spacer(0.3))
 
 story.append(PageBreak())
