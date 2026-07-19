@@ -526,6 +526,99 @@ story.append(RLImage("sample2.jpg", width=10*cm, height=6*cm))
 story.append(caption("Figure 1. Sample training images with complex diacritics and specialized characters"))
 story.append(PageBreak())
 
+# ── 1.5 PDF catalog statistics ───────────────────────────────────────────────
+story.append(h2("1.5 PDF catalog statistics"))
+story.append(body(
+    "The PDF catalog underpinning both the training and evaluation datasets contains "
+    "<b>1,525 unique documents</b> collected from institutional sources across Mexico. "
+    "These PDFs cover indigenous language grammars, dictionaries, writing guides, "
+    "educational materials, and legal documents. The tables below summarize the "
+    "catalog composition by source, collection type, language family, and superlanguage. "
+    "Null entries (N/A) indicate documents where the metadata field was not applicable."
+))
+story.append(spacer(0.1))
+
+# Source
+story.append(h3("By source institution"))
+pdf_src_rows = [
+    ["Source", "Count", "%"],
+    ["ILV (Instituto Lingüístico de Verano)", "861", "56.5%"],
+    ["SEP (Secretaría de Educación Pública)", "150", "9.8%"],
+    ["Other (AVELI, books, IMJUVE, UN, etc.)", "94",  "6.2%"],
+    ["INALI (Instituto Nacional de Lenguas)",  "83",  "5.4%"],
+    ["SSA (Secretaría de Salud)",              "81",  "5.3%"],
+    ["CENAPRED",                               "59",  "3.9%"],
+    ["Government",                             "56",  "3.7%"],
+    ["N/A",                                    "141", "9.2%"],
+]
+story.append(dtable(pdf_src_rows[0], pdf_src_rows[1:],
+                    cw=[7*cm, 2*cm, 2*cm]))
+story.append(spacer(0.2))
+
+# Collection
+story.append(h3("By collection type"))
+pdf_coll_rows = [
+    ["Collection", "Count", "%"],
+    ["Other",            "161", "10.6%"],
+    ["Textbooks",        "150", "9.8%"],
+    ["Dictionary",       "118", "7.7%"],
+    ["Academic",         "114", "7.5%"],
+    ["COVID-19",         "81",  "5.3%"],
+    ["Writing rules",    "63",  "4.1%"],
+    ["Natural disasters", "59", "3.9%"],
+    ["Legal",            "56",  "3.7%"],
+    ["N/A",              "723", "47.4%"],
+]
+story.append(dtable(pdf_coll_rows[0], pdf_coll_rows[1:],
+                    cw=[7*cm, 2*cm, 2*cm]))
+story.append(spacer(0.2))
+
+# Family
+story.append(h3("By language family"))
+pdf_fam_rows = [
+    ["Family", "Count", "%"],
+    ["Otomangue",         "816", "53.5%"],
+    ["Yuto-Nahua",        "183", "12.0%"],
+    ["Mayense",           "122", "8.0%"],
+    ["Totonaco-Tepehua",   "79", "5.2%"],
+    ["Mixe-Zoqueano",      "59", "3.9%"],
+    ["Other (8 families)",  "44", "2.9%"],
+    ["N/A",               "222", "14.6%"],
+]
+story.append(dtable(pdf_fam_rows[0], pdf_fam_rows[1:],
+                    cw=[7*cm, 2*cm, 2*cm]))
+story.append(spacer(0.2))
+
+# Superlanguage
+story.append(h3("By superlanguage (top 10)"))
+pdf_sl_rows = [
+    ["Superlanguage", "Count", "%"],
+    ["Zapoteco",          "330", "21.6%"],
+    ["Mixteco",           "285", "18.7%"],
+    ["Náhuatl",           "113", "7.4%"],
+    ["Mazateco",           "61", "4.0%"],
+    ["Totonaco",           "48", "3.1%"],
+    ["Tepehua",            "31", "2.0%"],
+    ["Chinanteco",         "28", "1.8%"],
+    ["Maya",               "25", "1.6%"],
+    ["Amuzgo",             "23", "1.5%"],
+    ["Other (56 groups)", "359", "23.5%"],
+    ["N/A",               "222", "14.6%"],
+]
+story.append(dtable(pdf_sl_rows[0], pdf_sl_rows[1:],
+                    cw=[7*cm, 2*cm, 2*cm]))
+story.append(spacer(0.2))
+
+story.append(callout(
+    "Full catalog statistics (including per-language breakdowns across all 206 coded "
+    "language varieties) are available at "
+    "<font name='Courier' size='9'>dataset/pdf_catalog_stats.md</font> and "
+    "<font name='Courier' size='9'>dataset/pdf_catalog_stats.json</font> in the repository.",
+    "info"
+))
+
+story.append(PageBreak())
+
 # ══════════════════════════════════════════════════════════════════════════════
 # 2. FINE-TUNING
 # ══════════════════════════════════════════════════════════════════════════════

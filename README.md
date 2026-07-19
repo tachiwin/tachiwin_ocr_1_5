@@ -221,6 +221,8 @@ Full derivation: [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py)
 
 **Training data note:** Training uses synthetic document layouts (text blocks rendered as images) to maximize volume. Ground truth text is drawn from real indigenous language corpora. The evaluation dataset is constructed exclusively from real PDFs to ensure authentic difficulty and zero training overlap.
 
+**PDF catalog stats:** The [`pdf_catalog_stats.md`](dataset/pdf_catalog_stats.md) and [`pdf_catalog_stats.json`](dataset/pdf_catalog_stats.json) files provide a detailed breakdown of the underlying PDF corpus (1,525 documents) by source institution, collection type, language family, superlanguage, and ISO code — including null/N/A counts for full transparency.
+
 ---
 
 ## Repository structure
@@ -272,7 +274,9 @@ tachiwin_ocr_1_5/
 ├── dataset/
 │   ├── uncommon_chars.py            # Character set definition + scoring function
 │   ├── char_stats.json              # Character frequency statistics
-│   └── layouts.json                 # Layout configuration
+│   ├── layouts.json                 # Layout configuration
+│   ├── pdf_catalog_stats.md         # PDF catalog statistics (narrative)
+│   └── pdf_catalog_stats.json       # PDF catalog statistics (structured)
 │
 └── examples/
     └── quickstart.py                # Single image → markdown output
