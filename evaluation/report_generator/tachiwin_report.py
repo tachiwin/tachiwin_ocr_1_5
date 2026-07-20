@@ -310,11 +310,12 @@ story.append(body(
 ))
 story.append(spacer(0.2))
 story.append(metrics_row([
-    ("68",      "New language\ngroups covered",      PRIMARY),
+    ("68",      "New Languages\nTrained",      PRIMARY),
+    ("16",      "Languages\nSignificant Improvement",      DARK),
     ("+33",      "Specialized\ncharacters",      SECONDARY),
-    ("14.5 GB", "Training dataset",                    DARK),
+    ("14Gb", "Training dataset",                    DARK),
     ("49K",  "Training samples",                    PRIMARY),
-    ("33K", "Evaluation dataset",      SECONDARY),
+    ("33K", "Evaluation samples",      SECONDARY),
 ]))
 story.append(spacer(0.4))
 story.append(rule())
@@ -574,6 +575,7 @@ story.append(dtable(pdf_coll_rows[0], pdf_coll_rows[1:],
 story.append(spacer(0.2))
 
 # Family
+story.append(PageBreak())
 story.append(h3("By language family"))
 pdf_fam_rows = [
     ["Family", "Count", "%"],
@@ -915,8 +917,9 @@ story.append(body(
     "often lack statistical significance despite large point estimates."
 ))
 story.append(RLImage("chart_14_code_cer.png", width=TW*0.95, height=6*cm))
-story.append(RLImage("chart_15_code_improvement.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_15_code_improvement.png", width=TW*0.9, height=15*cm))
 story.append(spacer(0.1))
+story.append(PageBreak())
 story.append(body(
     "The following table lists the largest languages by page count (≥ 20 pages). "
     "Full results for all 30 languages are in the repository."
