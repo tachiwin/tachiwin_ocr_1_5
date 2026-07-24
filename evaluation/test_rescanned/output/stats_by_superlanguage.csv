@@ -1,0 +1,7 @@
+superlanguage,Pages,Base CER,Fine-tuned CER,CER Improvement,Base WER,Fine-tuned WER,Base Char Accuracy,Fine-tuned Char Accuracy,p-value,Significance
+Chinanteco,78,0.4233,0.2686,36.6%,0.6994,0.6414,0.6278,0.7314,0.00687,**
+Amuzgo,66,0.9366,0.2592,72.3%,0.7387,0.3907,0.4963,0.7651,0.0,***
+Mazateco,32,1.0226,0.1677,83.6%,0.7172,0.2591,0.5677,0.8323,0.00686,**
+Popoluca,8,0.1732,0.0791,54.3%,0.6355,0.2107,0.8268,0.9209,0.03501,*
+Mixteco,6,0.3038,0.1879,38.1%,0.6245,0.3604,0.6962,0.8121,0.01608,*
+Zapoteco,3,0.3274,0.2597,20.7%,0.5952,0.4296,0.6726,0.7403,0.18406,ns

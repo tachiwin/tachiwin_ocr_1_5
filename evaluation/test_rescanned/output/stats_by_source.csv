@@ -1,0 +1,4 @@
+source,Pages,Base CER,Fine-tuned CER,CER Improvement,Base WER,Fine-tuned WER,Base Char Accuracy,Fine-tuned Char Accuracy,p-value,Significance
+ilv,182,0.72,0.255,64.6%,0.7271,0.4863,0.5627,0.7538,0.0,***
+books,10,0.1496,0.0957,36.0%,0.375,0.3092,0.8504,0.9043,0.00026,***
+government,7,0.1503,0.0271,82.0%,0.6648,0.1774,0.8497,0.9729,0.00245,**

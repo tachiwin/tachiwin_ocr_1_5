@@ -1,0 +1,5 @@
+collection,Pages,Base CER,Fine-tuned CER,CER Improvement,Base WER,Fine-tuned WER,Base Char Accuracy,Fine-tuned Char Accuracy,p-value,Significance
+dictionary,82,0.4155,0.2742,34.0%,0.6908,0.6412,0.6331,0.7258,0.00915,**
+grammar,66,0.9366,0.2592,72.3%,0.7387,0.3907,0.4963,0.7651,0.0,***
+legal,7,0.1503,0.0271,82.0%,0.6648,0.1774,0.8497,0.9729,0.00245,**
+writing_rules,4,0.5238,0.1567,70.1%,0.5252,0.2462,0.5379,0.8433,0.16248,ns

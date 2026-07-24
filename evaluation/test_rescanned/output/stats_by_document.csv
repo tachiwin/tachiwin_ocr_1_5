@@ -1,0 +1,18 @@
+pdf_hash,Pages,Base CER,Fine-tuned CER,CER Improvement,Base WER,Fine-tuned WER,Base Char Accuracy,Fine-tuned Char Accuracy,name,code,language,superlanguage,family,collection,source
+3821017ab17355121413db91daaa90205ba9dab101b9e7e628a0d1b2e1694337,77,0.4209,0.271,35.6%,0.7001,0.6473,0.6309,0.729,chz Diccionario chinanteco Ayotzintepec,chz,chinanteco del sureste alto,Chinanteco,Otomangue,dictionary,ilv
+3d6086b073801b95457ebabb27f9f2ba5e0f38b235a40da5a6e7f60de323a800,66,0.9366,0.2592,72.3%,0.7387,0.3907,0.4963,0.7651,amu gramatica,amu,amuzgo del norte,Amuzgo,Otomangue,grammar,ilv
+2f22b175f84dfa923dbbacc5820da738234287990e6a46deaee8be21bcbab89b,20,1.4953,0.196,86.9%,0.9096,0.2265,0.4368,0.804,maj Tinchiyai,maj,mazateco del este bajo,Mazateco,Otomangue,,ilv
+6fe4c85920beb3431e0032dcf1d9093be2c7fa6461fa2dfc474604f255558e35,10,0.1496,0.0957,36.0%,0.375,0.3092,0.8504,0.9043,vmp const cdmx,vmp,mazateco del noreste,Mazateco,Otomangue,,books
+68668118d10d08c71263b6e6349863b0b7b0579508152b81b00c296679dd2a8e,7,0.1503,0.0271,82.0%,0.6648,0.1774,0.8497,0.9729,poi,poi,popoluca de la Sierra,Popoluca,Mixe-Zoqueano,legal,government
+de6b84e9223cef4cc2874574f26d5bb6ff56987155339fbd6da1ff4ec1825aee,5,0.3335,0.3242,2.8%,0.5484,0.5464,0.6665,0.6758,zad Mi peque%C3%B1o diccionario ilustrado,zad,,,,dictionary,ilv
+7271ff9181682598d74722878963057defa58110a290b9e469fb75483f1f2036,3,0.1854,0.0341,81.6%,0.5152,0.104,0.8146,0.9659,meh gato,meh,mixteco del suroeste,Mixteco,Otomangue,,ilv
+36455bcc9617625ddc3ab05125ac27119c3f2c1a169f6caf83ec8c6e62aa4505,2,0.248,0.207,16.6%,0.7778,0.6528,0.752,0.793,zad Adivinanzas,zad,,,,,ilv
+7a41e4090bed3bf08b40965d133cb25cc6dcdfb90bd8b8579ff102ddc6678736,2,0.5594,0.477,14.7%,0.9012,0.8378,0.4406,0.523,jmx construir casas adobe,jmx,mixteco del oeste,Mixteco,Otomangue,,ilv
+46732de90223332b917dd9ab6a72ee503d8a339b14f9f3b63022100f4d7915bc,1,0.1478,0.0713,51.8%,0.3992,0.1744,0.8522,0.9287,mim convOrt,mim,mixteco central de Guerrero,Mixteco,Otomangue,writing_rules,ilv
+5a8c538b77121131444004774ca29131da03ca319c1fc42eb5872513bfc2430c,1,0.614,0.0847,86.2%,0.6433,0.1847,0.386,0.9153,cle propusta convenciones escribir,cle,chinanteco central,Chinanteco,Otomangue,writing_rules,ilv
+3bdde4164c4c074a93373a6e7dc8f91163f862a694a88be2cffc77d47e291117,1,0.5797,0.5119,11.7%,0.5763,0.2373,0.4203,0.4881,zca benito juarez,zca,zapoteco de Valles del sur,Zapoteco,Otomangue,,ilv
+a241ac3dbdebe05450c36a595138aea6c5f30f5d24fde6b6e16bf591b6dcc50d,1,0.3333,0.4429,-32.9%,0.43,0.4437,0.6667,0.5571,popoluca-de-la-sierra-guia-atencion-pueblos-indigenas-afromexicano-covid19,poi,popoluca de la Sierra,Popoluca,Mixe-Zoqueano,covid,ssa
+e4553310cc432185560016a850dd8295d1a937c00a74f3525ed7ff70f4a9866d,1,0.0741,0.0976,-31.7%,0.1857,0.25,0.9259,0.9024,vmz Tiempo,vmz,mazateco del suroeste,Mazateco,Otomangue,,ilv
+e9fddd9c8047918c318330263232aa80bb6e16660cc0621e90f5b5d6c729ee75,1,0.0865,0.0776,10.3%,0.2354,0.2073,0.9135,0.9224,zpc ConvOrth,zpc,zapoteco del oeste de Tuxtepec,Zapoteco,Otomangue,writing_rules,ilv
+ea3037cbf633149ae04f44414b516d854bc53365d19ced8e7c48f5f1ddfc1c38,1,1.2469,0.3931,68.5%,0.8227,0.4184,0.0,0.6069,maa propuesta escribir eloxochitlan,maa,mazateco de Tecóatl,Mazateco,Otomangue,writing_rules,ilv
+fd5319d4c7d3975d799dd3d86008c61122520a7856d2ed21325bc5995f44b74b,1,0.3159,0.1895,40.0%,0.974,0.8442,0.6841,0.8105,ztg varios tipos salsas,ztg,"zapoteco de la Sierra sur, del sureste alto",Zapoteco,Otomangue,,ilv
