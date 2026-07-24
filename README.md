@@ -223,6 +223,8 @@ Full derivation: [`dataset/uncommon_chars.py`](dataset/uncommon_chars.py)
 
 **PDF catalog stats:** The [`pdf_catalog_stats.md`](dataset/pdf_catalog_stats.md) and [`pdf_catalog_stats.json`](dataset/pdf_catalog_stats.json) files provide a detailed breakdown of the underlying PDF corpus (1,525 documents) by source institution, collection type, language family, superlanguage, and ISO code — including null/N/A counts for full transparency.
 
+**Rescanned robustness test:** To validate real-world performance, a 200-page subset of the evaluation set (uncommon_char_score ≥ 0.5) was displayed on an LCD screen, photographed freehand with a cellphone camera (108 MP, no tripod), and OCR-processed through the identical pipeline. The fine-tuned model showed no statistically significant degradation vs clean rendered pages (paired t-test p = 0.62, Wilcoxon p = 0.85). Full results in [`evaluation/test_comparison/output/comparison_report.md`](evaluation/test_comparison/output/comparison_report.md).
+
 ---
 
 ## Repository structure
@@ -237,12 +239,14 @@ tachiwin_ocr_1_5/
 │   └── Tachiwin_OCR_PaddleOCR_VL_1_5_Finetuning.ipynb
 │
 ├── evaluation/
-│   ├── per_language_stats.py             # Per-language stats, charts, and report
-│   ├── generate_metadata_cache.py        # Build metadata cache from HF dataset
-│   ├── pdfs_metadata.json                # Shared PDF catalog (metadata per pdf_hash)
-│   ├── tachiwin_ocr_comparison_eval.py   # Full eval + statistical comparison
-│   ├── eval_tachiwin_colab.py            # Colab-adapted eval variant
-│   ├── run_modified_eval.py              # Modified eval runner
+│   ├── per_language_stats.py                # Per-language stats, charts, and report
+│   ├── compare_rendered_vs_rescanned.py     # Rendered vs rescanned comparison
+│   ├── generate_metadata_cache.py           # Build metadata cache from HF dataset
+│   ├── pdfs_metadata.json                   # Shared PDF catalog (metadata per pdf_hash)
+│   ├── tachiwin_ocr_comparison_eval.py      # Full eval + statistical comparison
+│   ├── eval_tachiwin_colab.py               # Colab-adapted eval variant
+│   ├── run_modified_eval.py                 # Modified eval runner
+│   ├── report_generator/                    # PDF report generator (fonts, logo, script)
 │   ├── test_1000/                        # 1,000-page benchmark (uncommon ≥ 0.4)
 │   │   ├── eval_base.json
 │   │   ├── eval_finetuned.json
@@ -257,19 +261,30 @@ tachiwin_ocr_1_5/
 │   │       ├── stats_by_collection.csv
 │   │       ├── stats_by_source.csv
 │   │       └── charts/                   # 16 PNG charts (see report for links)
-│   └── test_2000/                        # 2,000-page benchmark (uncommon ≥ 0.3)
-│       ├── eval_base.json
-│       ├── eval_finetuned.json
-│       ├── eval_metadata_cache.json
+│   ├── test_2000/                        # 2,000-page benchmark (uncommon ≥ 0.3)
+│   │   ├── eval_base.json
+│   │   ├── eval_finetuned.json
+│   │   ├── eval_metadata_cache.json
+│   │   └── output/
+│   │       ├── evaluation_report.md      # Full report with charts (markdown)
+│   │       ├── stats_by_code.csv
+│   │       ├── stats_by_document.csv
+│   │       ├── stats_by_superlanguage.csv
+│   │       ├── stats_by_family.csv
+│   │       ├── stats_by_collection.csv
+│   │       ├── stats_by_source.csv
+│   │       └── charts/                   # 16 PNG charts (see report for links)
+│   ├── test_rescanned/                   # 200-page rescanned benchmark (uncommon ≥ 0.5)
+│   │   ├── eval_base.json
+│   │   ├── eval_finetuned.json
+│   │   ├── eval_metadata_cache.json
+│   │   └── output/
+│   │       ├── evaluation_report.md
+│   │       └── charts/
+│   └── test_comparison/
 │       └── output/
-│           ├── evaluation_report.md      # Full report with charts (markdown)
-│           ├── stats_by_code.csv
-│           ├── stats_by_document.csv
-│           ├── stats_by_superlanguage.csv
-│           ├── stats_by_family.csv
-│           ├── stats_by_collection.csv
-│           ├── stats_by_source.csv
-│           └── charts/                   # 16 PNG charts (see report for links)
+│           ├── comparison_report.md      # Rendered vs rescanned analysis
+│           └── charts/
 │
 ├── dataset/
 │   ├── uncommon_chars.py            # Character set definition + scoring function
