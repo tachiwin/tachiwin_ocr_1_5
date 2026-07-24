@@ -328,7 +328,8 @@ toc = [
     ("2", "Fine-Tuning"),
     ("3", "Evaluation Dataset Construction"),
     ("4", "Evaluation Methodology and Results"),
-    ("5", "Open-Source Assets"),
+    ("5", "Robustness to Scanning Noise"),
+    ("6", "Open-Source Assets"),
 ]
 for num, title in toc:
     story.append(bodyl(
@@ -1080,12 +1081,79 @@ story.append(spacer(0.2))
 story.append(RLImage("chart_16_scatter_coverage_improvement.png", width=TW*0.95, height=6*cm))
 story.append(spacer(0.3))
 
+# ── 4.11 Robustness to scanning noise ─────────────────────────────────────────
+story.append(h2("4.11 Robustness to scanning noise"))
+story.append(body(
+    "To assess whether the fine-tuned model's performance degrades under real-world scanning "
+    "conditions, a separate evaluation was conducted on <b>rescanned pages</b> — real PDF pages "
+    "that were displayed on a laptop LCD screen, photographed with a cellphone camera "
+    "(108 MP, f/1.8, autofocus, no tripod), and then OCR-processed through the identical "
+    "PaddleOCR-VL pipeline."
+))
+
+story.append(h3("Methodology"))
+for item in [
+    "A random subset of 200 pages (uncommon_char_score ≥ 0.5) was selected from the same "
+    "<b>tachiwin/ocr-test-challenging-3</b> dataset used for the main benchmark.",
+    "Pages were assembled into a single master PDF in strict sequence (not grouped by source "
+    "document), then displayed on a laptop LCD screen in a dimly lit room.",
+    "A single cellphone camera (108 MP, f/1.8, autofocus, optical image stabilization off, "
+    "1× zoom) was used to photograph each page in sequence, freehand with no tripod.",
+    "No retouching or post-processing was applied. Natural skew, rotation, slight defocus, "
+    "and LCD moiré patterns are present in the captured images.",
+    "After verifying strict page sequence was preserved, the ground truth text and metadata "
+    "were carried over from the original dataset, and both base and fine-tuned models were "
+    "run through the identical evaluation pipeline.",
+]:
+    story.append(bullet(item))
+    story.append(spacer(0.05))
+
+story.append(h3("Results"))
+story.append(body(
+    "The fine-tuned model's CER on rescanned pages (0.240) was nearly identical to its "
+    "performance on clean rendered pages (0.232), a relative degradation of only +3.3%. "
+    "Critically, across the 17 documents that appeared in <b>both</b> the rendered and rescanned "
+    "evaluation sets, the difference was <b>not statistically significant</b>:"
+))
+
+sig_rows = [
+    ["Test", "Metric", "Statistic", "p-value", "Significance"],
+    ["Paired t-test",  "CER", "t = 0.51", "0.620",  "ns"],
+    ["Wilcoxon signed-rank", "CER", "W = 72",  "0.854",  "ns"],
+    ["Paired t-test",  "WER", "t = 0.15", "0.881",  "ns"],
+]
+story.append(dtable(sig_rows[0], sig_rows[1:],
+                    cw=[3.5*cm, 3*cm, 3*cm, 2.5*cm, 2.5*cm]))
+story.append(spacer(0.2))
+
+story.append(body(
+    "9 of 17 overlapping documents showed slightly higher CER on rescanned pages, "
+    "while 8 showed slightly lower CER. The mean CER across all 17 overlapping docs was "
+    "<b>0.241 (rendered) vs 0.221 (rescanned)</b> — a negligible difference in the opposite "
+    "direction, further confirming the absence of systematic degradation."
+))
+
+story.append(RLImage("chart_rescanned_ft_cer.png", width=TW*0.95, height=6*cm))
+story.append(RLImage("chart_rescanned_degradation.png", width=TW*0.95, height=4.5*cm))
+story.append(RLImage("chart_rescanned_bucket.png", width=TW*0.95, height=6*cm))
+
+story.append(h3("Conclusion"))
+story.append(body(
+    "The results confirm that <b>Tachiwin-OCR-1.5 performs equally well on clean rendered "
+    "PDF pages and on real-world rescanned photographs</b>. The synthetic training distortions "
+    "(blur, noise, rotation, ink spread, geometric warping) successfully simulate the range "
+    "of artifacts introduced by the capture process, allowing the model to generalize to "
+    "scanning noise without measurable degradation. This is a strong indicator that the model "
+    "will perform reliably on real-world OCR tasks involving printed documents digitized "
+    "through photography or scanning."
+))
+
 story.append(PageBreak())
 
 # ══════════════════════════════════════════════════════════════════════════════
-# 5. OPEN-SOURCE ASSETS
+# 6. OPEN-SOURCE ASSETS
 # ══════════════════════════════════════════════════════════════════════════════
-story.append(h1("5. Open-Source Assets"))
+story.append(h1("6. Open-Source Assets"))
 story.append(body(
     "All project assets are publicly available. Training data is not required to be "
     "open-sourced per the competition rules, but has been made public to maximize "
